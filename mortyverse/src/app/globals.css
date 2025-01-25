@@ -2,20 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Cores Personalizadas */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --spaceBlue: #1a1d3b;
+  --alienGreen: #00ffab;
+  --darkPurple: #2a0138;
+  --neonGreen: #39ff14;
+  --portalGreen: #28df99;
+  --vividPink: #ff007c;
+  --skyBlue: #00d4ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Fonte Personalizada */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
