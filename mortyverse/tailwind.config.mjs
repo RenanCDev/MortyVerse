@@ -8,8 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        portalGreen: "#00ffbf",
+        skyBlue: "#00d4ff",
+        darkPurple: "#2a0535",
+        vividPink: "#ff0080",
+        electricBlue: "#0096ff",
+        darkGray: "#1c1c1e",
+        neonGreen: "#39ff14",
       },
     },
   },
