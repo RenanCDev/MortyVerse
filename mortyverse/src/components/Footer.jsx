@@ -1,8 +1,10 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-darkPurple text-center text-sm text-neonGreen py-2 mt-auto">
       <p className="text-neonGreen">
-        © {new Date().getFullYear()} MortyVerse. Developed and created by{" "}
+        © {currentYear} MortyVerse. Developed and created by{" "}
         <a
           href="https://github.com/RenanCDev"
           className="text-neonGreen hover:text-portalGreen hover:underline mr-2 font-bold"
@@ -11,7 +13,7 @@ export default function Footer() {
         >
           Renan Costa
         </a>
-        <span className="text-neonGreen">and</span>
+        <span className="text-neonGreen"> and </span>
         <a
           href="https://github.com/luizmiguel4444"
           className="text-neonGreen hover:text-portalGreen hover:underline ml-2 font-bold"
@@ -22,9 +24,7 @@ export default function Footer() {
         </a>
         .
       </p>
-      <p className="text-portalGreen">
-        Wubba Lubba Dub Dub
-      </p>
+      <p className="text-portalGreen">Wubba Lubba Dub Dub</p>
     </footer>
   );
 }

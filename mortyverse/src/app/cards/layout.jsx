@@ -9,10 +9,6 @@ export const metadata = {
 
 export default function CardsLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="bg-spaceBlue text-alienGreen">
-        <main>{children}</main>
-      </body>
-    </html>
+        <>{children}</>
   );
 }

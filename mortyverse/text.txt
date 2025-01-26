@@ -1,3 +1,4 @@
+projeto de react nextjs com tailwind
 mortyverse
     .next
     node_modules
@@ -24,6 +25,7 @@ mortyverse
                 page.jsx
             globals.css
             layout.jsx
+            page.jsx
         components
             CharacterCard.jsx
             Footer.jsx
@@ -44,128 +46,125 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-spaceBlue text-alienGreen min-h-screen flex flex-col">
-        <Header pageTitle="Home"/>
-        <main className="flex-grow container mx-auto p-4">{children}</main>
+        <Header />
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
   );
 }
 
+
+
+o arquivo ortyverse/src/app/page.jsx
+export default function DefaultPage() {
+    return (
+      <section className="p-8">
+        <h1 className="text-4xl font-bold text-neonGreen">Default Page</h1>
+        <p className="mt-4 text-xl text-portalGreen">View and collect your Default!</p>
+      </section>
+    );
+  }
+
+
+
 os arquivos de layout.jsx de character, episode, favorites, home, location estão iguais, mudando apenas o pageTitle:
+import "../globals.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export const metadata = {
-  title: "MortyVerse - Cards",
-  description: "Explore the Cards in MortyVerse",
+  title: "MortyVerse",
+  description: "Character Page - MortyVerse",
 };
 
-export default function CardsLayout({ children }) {
+export default function CharacterLayout({ children }) {
   return (
-    <>
-      {/* Cabeçalho com título da página */}
-      <Header pageTitle="Cards" />
-      
-      {/* Conteúdo principal */}
-      <main className="container mx-auto p-4">{children}</main>
-      
-      {/* Rodapé */}
-      <Footer />
-    </>
+    <html lang="en">
+      <body className="bg-spaceBlue text-alienGreen">
+        <main>{children}</main>
+      </body>
+    </html>
   );
 }
+
+
 
 os arquivos de layout.jsx de character, episode, favorites, home, location estão iguais, mudando apenas os seus nomes:
-export default function CardsPage() {
+export default function CharacterPage() {
   return (
-    <div>
-      <h2 className="text-2xl">Welcome to the Cards Page!</h2>
-    </div>
+    <section className="p-8">
+      <h1 className="text-4xl font-bold text-neonGreen">Character Page</h1>
+      <p className="mt-4 text-xl text-portalGreen">View and collect your Character!</p>
+    </section>
   );
 }
 
 
 
-src/components/CharacterCard.jsx
-export default function CharacterCard({ character }) {
-    return (
-      <div className="bg-darkPurple text-neonGreen rounded-xl shadow-md p-4">
-        <img src={character.image} alt={character.name} className="w-full rounded-md" />
-        <h3 className="text-xl font-bold">{character.name}</h3>
+src/components/Footer.jsx
+export default function Footer() {
+  return (
+    <footer className="bg-darkPurple text-center text-sm text-neonGreen py-2 mt-auto">
+      <p className="text-neonGreen">
+        © {new Date().getFullYear()} MortyVerse. Developed and created by{" "}
+        <a
+          href="https://github.com/RenanCDev"
+          className="text-neonGreen hover:text-portalGreen hover:underline mr-2 font-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Renan Costa
+        </a>
+        <span className="text-neonGreen">and</span>
+        <a
+          href="https://github.com/luizmiguel4444"
+          className="text-neonGreen hover:text-portalGreen hover:underline ml-2 font-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Luiz Miguel
+        </a>
+        .
+      </p>
+      <p className="text-portalGreen">
+        Wubba Lubba Dub Dub
+      </p>
+    </footer>
+  );
+}
+
+
+
+src/components/Header.jsx
+export default function Header() {
+  return (
+    <header className="bg-darkPurple text-neonGreen py-4 shadow-lg">
+      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="/" className="text-3xl font-bold hover:text-portalGreen">
+          MortyVerse
+        </a>
+        <nav className="flex flex-wrap justify-center sm:justify-end gap-4">
+          <a href="/home" className="font-bold hover:underline hover:text-portalGreen">
+            Home
+          </a>
+          <a href="/favorites" className="font-bold hover:underline hover:text-portalGreen">
+            Favorites
+          </a>
+          <a href="/character" className="font-bold hover:underline hover:text-portalGreen">
+            Character
+          </a>
+          <a href="/location" className="font-bold hover:underline hover:text-portalGreen">
+            Location
+          </a>
+          <a href="/episode" className="font-bold hover:underline hover:text-portalGreen">
+            Episode
+          </a>
+          <a href="/cards" className="font-bold hover:underline hover:text-portalGreen">
+            Cards
+          </a>
+        </nav>
       </div>
-    );
-  }
-  
-  src/components/Footer.jsx
-  export default function Footer() {
-    return (
-      <footer className="bg-darkPurple text-center text-sm text-neonGreen py-2">
-        <p className="text-neonGreen">
-          © {new Date().getFullYear()} MortyVerse. Developed and created by{" "}
-          <a
-            href="https://github.com/RenanCDev"
-            className="text-neonGreen hover:text-portalGreen hover:underline mr-2 font-bold"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Renan Costa
-          </a>
-          <span className="text-neonGreen">and</span>
-          <a
-            href="https://github.com/luizmiguel4444"
-            className="text-neonGreen hover:text-portalGreen hover:underline ml-2 font-bold"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Luiz Miguel
-          </a>
-          .
-        </p>
-        <p className="text-portalGreen">
-          Wubba Lubba Dub Dub
-        </p>
-      </footer>
-    );
-  }
-  
-  src/components/Header.jsx
-  export default function Header({ pageTitle = "DEFAULT" }) {
-    return (
-      <header className="bg-darkPurple text-neonGreen py-4 shadow-lg">
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Logo alinhado à esquerda */}
-          <a href="/" className="text-3xl font-bold hover:text-portalGreen">
-            MortyVerse
-          </a>
-
-          {/* Título centralizado e responsivo */}
-          <h1 className="text-2xl sm:text-4xl font-bold text-center sm:flex-grow break-words">
-            {pageTitle}
-          </h1>
-
-          {/* Menu alinhado à direita */}
-          <nav className="flex flex-wrap justify-center sm:justify-end gap-4">
-            <a href="/app/home" className="font-bold hover:underline hover:text-portalGreen">
-              Home
-            </a>
-            <a href="/app/favorites" className="font-bold hover:underline hover:text-portalGreen">
-              Favorites
-            </a>
-            <a href="/app/character" className="font-bold hover:underline hover:text-portalGreen">
-              Character
-            </a>
-            <a href="/app/location" className="font-bold hover:underline hover:text-portalGreen">
-              Location
-            </a>
-            <a href="/app/episode" className="font-bold hover:underline hover:text-portalGreen">
-              Episode
-            </a>
-            <a href="/app/cards" className="font-bold hover:underline hover:text-portalGreen">
-              Cards
-            </a>
-          </nav>
-        </div>
-      </header>
-    );
-  }
+    </header>
+  );
+}
